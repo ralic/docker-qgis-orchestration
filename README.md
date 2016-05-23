@@ -28,7 +28,7 @@ docker-compose up -d qgis-server
 On Linux you probably don't use docker-machine so just do:
 
 ```
-docker-compose up -d
+docker-compose up -d qgis-server
 ```
 
 # Verify everything is running
@@ -55,6 +55,16 @@ Take a note of the IP address of the demo.qgis.org machined and then open your b
 
 
 On Linux simply test by pointing your browser at http:///localhost:8198
+
+# Additional notes
+
+ Not all of the demos will work on your local machine since they reference http://demo.qgis.org. Feel free to visit the afore mentioned site to see how they renderer. We would live it if others out there could contribute new examples to the site. You can also use this project as a guide to see how to deploy similar live maps to your own organisation.
+
+# Making the projects editable on your deskop
+
+You can synchonise the data to your desktop using btsync - this is our read only key: ``BRKIFB3PYGOXTDBOWXH6G4UCN2GYZV5ER``
+
+
 
 
 # Reverse proxy for nginx
