@@ -5,6 +5,10 @@ Orchestration scripts for running QGIS demo server.
 
 To use you need to have docker and docker-compose installed on any supported host. 
 
+# General Architecture
+
+<img width="869" alt="screen shot 2016-05-23 at 21 45 04" src="https://cloud.githubusercontent.com/assets/178003/15482421/cd3d770e-212f-11e6-8359-77865e49b73a.png">
+
 # Get the code
 
 First check out the sourecs to your local machine:
