@@ -28,7 +28,7 @@ btsync:
   restart: on-failure:5
 
 qgis-server:
-  image: kartoza/qgis-server
+  image: kartoza/qgis-server:2.14
   hostname: demo.qgis.org
   container_name: demo.qgis.org
   volumes_from: 
@@ -40,4 +40,17 @@ qgis-server:
   ports:
     - 8198:80 
   restart: on-failure:5
+
+qgisdesktop:
+  image: kartoza/qgis-desktop:2.14
+  hostname: qgis-desktop
+  volumes_from: 
+    - btsync
+  volumes:
+    - /tmp/.X11-unix:/tmp/.X11-unix
+  links:
+    - db:db
+  environment: 
+    - DISPLAY=unix:1
+  command: /usr/bin/qgis
 
