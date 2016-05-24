@@ -1,9 +1,28 @@
 QGIS Mapserver Demo Orchestration
 =================================
 
-Orchestration scripts for running QGIS demo server.
+<img width="926" alt="screen shot 2016-05-24 at 08 21 18" src="https://cloud.githubusercontent.com/assets/178003/15494079/973a34ea-2188-11e6-9d3c-0eb6a0150c5a.png">
 
-To use you need to have docker and docker-compose installed on any supported host. 
+# What does it do?
+
+It's a live web mapping gallery running QGIS Server in Docker and with deployed projects synced seamlessly from your desktop.
+
+This repository contains the [docker-compose](https://docs.docker.com/compose/) orchestration configuration for running QGIS demo server at http://demo.qgis.org. To use this repository, you need to have [docker](https://www.docker.com) and docker-compose installed on any supported host. When it is running it will create a synchronised platform for hosting maps based on [QGIS Server](http://docs.qgis.org/testing/en/docs/user_manual/working_with_ogc/ogc_server_support.html), [BTSync](http://getsync.com) and [PostGIS](http://postgis.net). Note that PostGIS is bundled but currently not used on the live demo server, we will start to include QGIS Server in future revisions.
+
+Once the composed service is busy running, it supports the following workflow:
+
+* Install QGIS Desktop and BTSync on your desktop and synchronise a folder with the read/write btsync folder key - which you need to get from tim@qgis.org or richard@qgis.org. The data in the synchronised folder is also version controlled in the [demo.qgis.org](https://github.com/qgis/demo.qgis.org] GIT repository.
+* Open one of the projects in the demo directory and improve it using QGIS. Or create a new project. For new projects be sure to add them to the [gallery page](https://github.com/qgis/demo.qgis.org/blob/master/index.html).
+* New projects should also be placed in their own folder - for simple cases, copy the [Swellendam](https://github.com/qgis/demo.qgis.org/blob/master/demos/swellendam/index.html) index and modify it according to your needs.
+
+# Why did we make this?
+
+There are two reasons:
+
+1. To showcase what you can do with QGIS and QGIS Server by creating an online gallery. Nothing advocates QGIS better than seeing the cartography you can produce with it.
+2. To showcase how QGIS and Docker can be used to orchestrate and deploy web maps seamlessly.
+
+
 
 # General Architecture
 
@@ -20,7 +39,13 @@ cd docker-qgis-orchestration
 
 # Build and run the services
 
-On OSX or Windows, we recommend using docker machine:
+On Linux just do:
+
+```
+docker-compose up -d qgis-server
+```
+
+On OSX or Windows, we recommend using [docker machine](https://docs.docker.com/machine/):
 
 ```
 docker-machine create --driver virtualbox demo.qgis.org
@@ -29,11 +54,7 @@ eval "$(docker-machine env demo.qgis.org)"
 docker-compose up -d qgis-server
 ```
 
-On Linux you probably don't use docker-machine so just do:
 
-```
-docker-compose up -d qgis-server
-```
 
 # Verify everything is running
 
@@ -55,7 +76,7 @@ You can test the service is running on OSX or windows by pointing to port 8198 o
 docker-machine ls
 ```
 
-Take a note of the IP address of the demo.qgis.org machined and then open your browser at http://<ip address>:8198
+Take a note of the IP address of the demo.qgis.org machined and then open your browser at ``http://<ip address>:8198``
 
 
 On Linux simply test by pointing your browser at http:///localhost:8198
@@ -78,6 +99,7 @@ Mapserver container (our orchestration scripts publish on 8198 by default).
 If you are using nginx on the host, you can simply do:
 
 ```
+
 
 ```
 
