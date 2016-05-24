@@ -36,7 +36,7 @@ There are two reasons:
 
 ## Get the code
 
-First check out the sourecs to your local machine:
+First check out the sources to your local machine:
 
 ```
 git clone https://github.com/qgis/docker-qgis-orchestration.git
