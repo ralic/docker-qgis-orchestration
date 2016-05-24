@@ -13,7 +13,7 @@ This repository contains the [docker-compose](https://docs.docker.com/compose/) 
 
 Once the composed service is busy running, it supports the following workflow:
 
-* Install QGIS Desktop and BTSync on your desktop and synchronise a folder with the read/write btsync folder key - which you need to get from tim@qgis.org or richard@qgis.org. The data in the synchronised folder is also version controlled in the [demo.qgis.org](https://github.com/qgis/demo.qgis.org] GIT repository.
+* Install QGIS Desktop and BTSync on your desktop and synchronise a folder with the read/write btsync folder key - which you need to get from tim@qgis.org or richard@qgis.org. The data in the synchronised folder is also version controlled in the [demo.qgis.org](https://github.com/qgis/demo.qgis.org) GIT repository.
 * Open one of the projects in the demo directory and improve it using QGIS. Or create a new project. For new projects be sure to add them to the [gallery page](https://github.com/qgis/demo.qgis.org/blob/master/index.html).
 * New projects should also be placed in their own folder - for simple cases, copy the [Swellendam](https://github.com/qgis/demo.qgis.org/blob/master/demos/swellendam/index.html) index and modify it according to your needs.
 
